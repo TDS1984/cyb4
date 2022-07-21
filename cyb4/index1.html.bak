@@ -1,0 +1,18 @@
+<html>
+  <head>
+  <title>Домашняя index01</title>
+   <meta charset="utf-8"/>
+  </head>
+  
+  <body>
+   <a href="login.php"> войти в систему </a>
+   <h1>Добро пожаловать на наш супер"ПОРТАЛ"</h1>
+     
+	 
+	 <p> здесь мы получим следющие услуги:</p>
+	 <a href="demo01 ДЗ1 кот мяукает ИТОГ.html"> Посмотреть на котика </a> <br />
+	 <a href="calc.html"> Посчитать на уникальном калькуляторе </a> <br />
+	 <a href="demo03.php"> удвоить свое число </a> <br />
+	 <a href="click_count.php"> пощелкать и посчитать </a> 
+   </body>
+</html>

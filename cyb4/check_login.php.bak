@@ -1,0 +1,44 @@
+<?php
+
+session_start();
+
+$user = $_REQUEST["txtuser"];
+$pwd  = $_REQUEST["txtpwd"];
+$hash = hash("sha256", $pwd);
+
+// if($hash == "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92") {
+//	echo "<h1> Привет, $user!!!</h1>";
+//}
+//else {
+//	echo "<h1> Пардоньте, пароль не верен!!!</h1>";
+//}
+
+// далее работа с БД -запрос к базе данных-
+//$sql = "SELECT * FROM users WHERE Login='$user' AND PwdHash='$hash' ";
+
+// программный код/ присоединение к БД mysqli_connect("localhost:3306", )
+
+//сдесь нарушены все нормы ИБ, 
+// 1.Cлабый пароль
+// 2.Нарушен принцип наименьших привилегий
+// 3. Секрет в коде ("" пустой пароль)
+
+$conn = mysqli_connect ("localhost:3306","root","","cyb4");
+
+$sql = "SELECT * FROM users WHERE Login= '$user' AND PwdHash= '$hash'"
+//echo $sql;
+$query = mysqli_query ($conn, $sql); 
+$result = mysqli_fetch_all ($query)
+//echo $result;
+//var_dump ($result);
+$numRows = count($result);
+// echo ($numRows)
+
+if ($numRows == 0) {
+	 echo "<h1> Пардоньте, пароль не верен!!!</h1>";
+}
+else {
+	echo "<h1> Привет, $user!!!</h1>";
+	$_SESION["user"] = $user;
+}
+mysqli_close($conn);

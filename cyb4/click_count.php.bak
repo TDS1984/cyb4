@@ -1,0 +1,33 @@
+<?php
+  session_start();
+?>
+<html>
+  <head>
+  
+  
+  <body>
+  
+  
+  <h1>Считаем щелчки</h1>
+<form>
+   <button>click</button>
+ </form>
+ 
+ <?php
+   
+   if (isset($_SESSION["clicks"]))
+       $i = $_SESSION["clicks"];
+    else
+		$i = 0;
+   //$i = $i + 1;
+   $i++;
+   echo "<h2>Число щелчков: $i </h2>"
+   $_SESSION["clicks"] = $i;
+	
+ 
+ ?>
+  
+</body>
+</html>
+
+
